@@ -1,0 +1,13 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: Bisnis Understanding
+    chapters:
+    - file: tugas1/main
+
+  - caption: Data Understanding
+    chapters:
+    - file: tugas2/main
