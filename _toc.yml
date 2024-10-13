@@ -11,3 +11,7 @@ parts:
   - caption: Data Understanding
     chapters:
     - file: tugas2/main
+  
+  - caption: Tugas UTS
+    chapters:
+    - file: tugas3/main
