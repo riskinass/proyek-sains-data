@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Air Passenger Forecasting &#8212; My sample book</title>
+    <title>Proyek Sains Data - Air Passenger Forecasting &#8212; My sample book</title>
   
   
   
@@ -188,8 +188,7 @@
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tugas UTS</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Air Passenger Forecasting</a></li>
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Proyek Sains Data - Air Passenger Forecasting</a></li>
 
 
 
@@ -378,7 +377,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Air Passenger Forecasting</h1>
+    <h1>Proyek Sains Data - Air Passenger Forecasting</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -388,7 +387,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Air Passenger Forecasting</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Proyek Sains Data - Air Passenger Forecasting</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan">Tujuan</a></li>
 </ul>
 </li>
@@ -426,13 +425,13 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menambahkan-bulan">Menambahkan Bulan</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sliding-windows">Sliding Windows</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#membagi-data">Membagi Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest-dan-gradient-boosting">Random Forest dan Gradient Boosting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-model"># Base Model</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prediksi-menggunakan-sliding-window">Prediksi Menggunakan Sliding Window</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-hasil-prediksi">Visualisasi Hasil Prediksi</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 </ul>
 
             </nav>
@@ -445,8 +444,13 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="air-passenger-forecasting">
-<h1>Air Passenger Forecasting<a class="headerlink" href="#air-passenger-forecasting" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="proyek-sains-data-air-passenger-forecasting">
+<h1>Proyek Sains Data - Air Passenger Forecasting<a class="headerlink" href="#proyek-sains-data-air-passenger-forecasting" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<p>Nama  : Riskina Salsabilla Bayzura</p>
+<p>NIM   : 22011100015</p>
+<p>Kelas : IF5D</p>
+<hr class="docutils" />
 <section id="tujuan">
 <h2>Tujuan<a class="headerlink" href="#tujuan" title="Link to this heading">#</a></h2>
 <p>Pada studi kasus saya kali ini, saya akan melakukan peralaman (<em>forecasting</em>) jumlah penumpang yang melakukan perjalanan menggunakan pesawat udara berdasarkan data <em>time-series</em>.</p>
@@ -468,7 +472,8 @@ document.write(`
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">skew</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">mean_absolute_error</span><span class="p">,</span> <span class="n">r2_score</span>
 
-<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">RandomForestRegressor</span><span class="p">,</span> <span class="n">GradientBoostingRegressor</span><span class="p">,</span> <span class="n">VotingRegressor</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="kn">import</span> <span class="n">BaggingRegressor</span><span class="p">,</span> <span class="n">RandomForestRegressor</span><span class="p">,</span> <span class="n">GradientBoostingRegressor</span><span class="p">,</span> <span class="n">VotingRegressor</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span><span class="p">,</span> <span class="n">TimeSeriesSplit</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
 
@@ -484,14 +489,14 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">skew</span>
 
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;seaborn&#39;
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;plotly&#39;
 </pre></div>
 </div>
 </div>
@@ -512,7 +517,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-857fb03b-ceb2-44eb-ae84-923ac7d92ee4" class="colab-df-container">
+  <div id="df-d687a6ae-fe38-4fc1-bcbd-e80d075c97fa" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -567,7 +572,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-857fb03b-ceb2-44eb-ae84-923ac7d92ee4')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-d687a6ae-fe38-4fc1-bcbd-e80d075c97fa')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -619,12 +624,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-857fb03b-ceb2-44eb-ae84-923ac7d92ee4 button.colab-df-convert');
+        document.querySelector('#df-d687a6ae-fe38-4fc1-bcbd-e80d075c97fa button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-857fb03b-ceb2-44eb-ae84-923ac7d92ee4');
+        const element = document.querySelector('#df-d687a6ae-fe38-4fc1-bcbd-e80d075c97fa');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -644,8 +649,8 @@ document.write(`
   </div>
 
 
-<div id="df-94cb690e-b4a5-49e4-9d5c-3c7e3b79d062">
-  <button class="colab-df-quickchart" onclick="quickchart('df-94cb690e-b4a5-49e4-9d5c-3c7e3b79d062')"
+<div id="df-a72a6d31-829c-42a9-8b17-3f78d612ca46">
+  <button class="colab-df-quickchart" onclick="quickchart('df-a72a6d31-829c-42a9-8b17-3f78d612ca46')"
             title="Suggest charts"
             style="display:none;">
 
@@ -764,7 +769,7 @@ document.write(`
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-94cb690e-b4a5-49e4-9d5c-3c7e3b79d062 button');
+        document.querySelector('#df-a72a6d31-829c-42a9-8b17-3f78d612ca46 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -867,7 +872,7 @@ informations: &lt;bound method DataFrame.info of        Month  #Passengers
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-87fa409b-bad1-4614-bb90-9ac8e4d53ac5" class="colab-df-container">
+  <div id="df-3e4d4304-92c0-4662-93a3-0e15943fdf44" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -928,7 +933,7 @@ informations: &lt;bound method DataFrame.info of        Month  #Passengers
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-87fa409b-bad1-4614-bb90-9ac8e4d53ac5')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-3e4d4304-92c0-4662-93a3-0e15943fdf44')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -980,12 +985,12 @@ informations: &lt;bound method DataFrame.info of        Month  #Passengers
 
     <script>
       const buttonEl =
-        document.querySelector('#df-87fa409b-bad1-4614-bb90-9ac8e4d53ac5 button.colab-df-convert');
+        document.querySelector('#df-3e4d4304-92c0-4662-93a3-0e15943fdf44 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-87fa409b-bad1-4614-bb90-9ac8e4d53ac5');
+        const element = document.querySelector('#df-3e4d4304-92c0-4662-93a3-0e15943fdf44');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1005,8 +1010,8 @@ informations: &lt;bound method DataFrame.info of        Month  #Passengers
   </div>
 
 
-<div id="df-ad7c3480-4955-492e-86a2-88b72e361418">
-  <button class="colab-df-quickchart" onclick="quickchart('df-ad7c3480-4955-492e-86a2-88b72e361418')"
+<div id="df-c883c1ff-19e3-4ef1-b7f8-3236040eae15">
+  <button class="colab-df-quickchart" onclick="quickchart('df-c883c1ff-19e3-4ef1-b7f8-3236040eae15')"
             title="Suggest charts"
             style="display:none;">
 
@@ -1125,7 +1130,7 @@ informations: &lt;bound method DataFrame.info of        Month  #Passengers
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-ad7c3480-4955-492e-86a2-88b72e361418 button');
+        document.querySelector('#df-c883c1ff-19e3-4ef1-b7f8-3236040eae15 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -1154,7 +1159,7 @@ informations: &lt;bound method DataFrame.info of        Month  #Passengers
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-a10969a5-3797-4b8c-b663-c7521c81b93b" class="colab-df-container">
+  <div id="df-1fdb4c9b-af3d-427b-a180-c0fa130e4449" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1207,7 +1212,7 @@ informations: &lt;bound method DataFrame.info of        Month  #Passengers
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-a10969a5-3797-4b8c-b663-c7521c81b93b')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-1fdb4c9b-af3d-427b-a180-c0fa130e4449')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -1259,12 +1264,12 @@ informations: &lt;bound method DataFrame.info of        Month  #Passengers
 
     <script>
       const buttonEl =
-        document.querySelector('#df-a10969a5-3797-4b8c-b663-c7521c81b93b button.colab-df-convert');
+        document.querySelector('#df-1fdb4c9b-af3d-427b-a180-c0fa130e4449 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-a10969a5-3797-4b8c-b663-c7521c81b93b');
+        const element = document.querySelector('#df-1fdb4c9b-af3d-427b-a180-c0fa130e4449');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1284,8 +1289,8 @@ informations: &lt;bound method DataFrame.info of        Month  #Passengers
   </div>
 
 
-<div id="df-79987416-a81e-4964-be03-f682f37892b0">
-  <button class="colab-df-quickchart" onclick="quickchart('df-79987416-a81e-4964-be03-f682f37892b0')"
+<div id="df-3b3b752c-d5a7-4a65-921c-75520844c812">
+  <button class="colab-df-quickchart" onclick="quickchart('df-3b3b752c-d5a7-4a65-921c-75520844c812')"
             title="Suggest charts"
             style="display:none;">
 
@@ -1404,7 +1409,7 @@ informations: &lt;bound method DataFrame.info of        Month  #Passengers
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-79987416-a81e-4964-be03-f682f37892b0 button');
+        document.querySelector('#df-3b3b752c-d5a7-4a65-921c-75520844c812 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -1426,7 +1431,7 @@ informations: &lt;bound method DataFrame.info of        Month  #Passengers
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/80b738a1cb586a5ef20b8297f9aafbf51f157d7bbd2cf48b0ee7c0135c60b0d3.png" src="../_images/80b738a1cb586a5ef20b8297f9aafbf51f157d7bbd2cf48b0ee7c0135c60b0d3.png" />
+<img alt="../_images/4808009e2e31c0fcb606a9e3a67966dc71ac0d90da607705cf1bff4a75f83fe5.png" src="../_images/4808009e2e31c0fcb606a9e3a67966dc71ac0d90da607705cf1bff4a75f83fe5.png" />
 </div>
 </div>
 </section>
@@ -1440,7 +1445,7 @@ informations: &lt;bound method DataFrame.info of        Month  #Passengers
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a5d429b35e1c5082adb63ca55a1a8564711b7912212808ddb6414db33ae2b033.png" src="../_images/a5d429b35e1c5082adb63ca55a1a8564711b7912212808ddb6414db33ae2b033.png" />
+<img alt="../_images/63186eef387a0d1e7dcbc81a73a4e59a706b411506ed6a35c85ea1e0909f9733.png" src="../_images/63186eef387a0d1e7dcbc81a73a4e59a706b411506ed6a35c85ea1e0909f9733.png" />
 </div>
 </div>
 </section>
@@ -1470,7 +1475,7 @@ informations: &lt;bound method DataFrame.info of        Month  #Passengers
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/d199c1331bd97465ea3b0bc776b6a9794b2e2d92b7ebf0b5aa93b5c9f3160882.png" src="../_images/d199c1331bd97465ea3b0bc776b6a9794b2e2d92b7ebf0b5aa93b5c9f3160882.png" />
+<img alt="../_images/29a96de0d24add5dc20f7f908722547129880eea67f874207631bd427ff6a0af.png" src="../_images/29a96de0d24add5dc20f7f908722547129880eea67f874207631bd427ff6a0af.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Original skewness: 0.5771
 </pre></div>
 </div>
@@ -1543,7 +1548,7 @@ informations: &lt;bound method DataFrame.info of        Month  #Passengers
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0f3b294fd87531c25c8340e26722219405d072224aba9f72b2f38bc92e5a260d.png" src="../_images/0f3b294fd87531c25c8340e26722219405d072224aba9f72b2f38bc92e5a260d.png" />
+<img alt="../_images/fe5ce1fd731d03fc92b2660bd8fd1925244a56fb14ce6c4daf80dadcab74db49.png" src="../_images/fe5ce1fd731d03fc92b2660bd8fd1925244a56fb14ce6c4daf80dadcab74db49.png" />
 </div>
 </div>
 </section>
@@ -1556,7 +1561,7 @@ informations: &lt;bound method DataFrame.info of        Month  #Passengers
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/21b621975eeaeaaebe05c8e7abe6132cf5b421a92cd495a588c801841dca68bc.png" src="../_images/21b621975eeaeaaebe05c8e7abe6132cf5b421a92cd495a588c801841dca68bc.png" />
+<img alt="../_images/72cf358fa91d79a83d668637792fd76a60e2a60d9a2c96a03716a934c6b51794.png" src="../_images/72cf358fa91d79a83d668637792fd76a60e2a60d9a2c96a03716a934c6b51794.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Results of Dickey-Fuller Test:
 Test Statistic                   0.815369
 p-value                          0.991880
@@ -1580,7 +1585,7 @@ dtype: float64
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/17e5b40aff735857eae8645424c351667bc5ec7489febcae3f8251111a403896.png" src="../_images/17e5b40aff735857eae8645424c351667bc5ec7489febcae3f8251111a403896.png" />
+<img alt="../_images/c8656dd56fcdabffeea27d6138e70ea9812f07eb9454fc94c279c304578abc9f.png" src="../_images/c8656dd56fcdabffeea27d6138e70ea9812f07eb9454fc94c279c304578abc9f.png" />
 </div>
 </div>
 </section>
@@ -1605,8 +1610,8 @@ dtype: float64
 ============================================================================================
 Dep. Variable:                           Passengers   No. Observations:                  144
 Model:             SARIMAX(2, 1, 2)x(0, 1, [1], 12)   Log Likelihood                -503.968
-Date:                              Sun, 13 Oct 2024   AIC                           1019.935
-Time:                                      18:09:38   BIC                           1037.186
+Date:                              Sun, 03 Nov 2024   AIC                           1019.935
+Time:                                      13:41:50   BIC                           1037.186
 Sample:                                  01-01-1949   HQIC                          1026.945
                                        - 12-01-1960                                         
 Covariance Type:                                opg                                         
@@ -1666,7 +1671,7 @@ Warnings:
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>	 SARIMA MODEL : In - Sample Forecasting 
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-16-e6396e3ee086&gt;:19: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-20-3bf6823fef1f&gt;:19: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
   obs = test[t]
 </pre></div>
 </div>
@@ -1730,7 +1735,7 @@ predicted = 438.411438, expected = 432.000000
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/4739461a6aa8657fbc55cb7968f22f8bbd2ebe2451a408ce4b650a345f3dfbc2.png" src="../_images/4739461a6aa8657fbc55cb7968f22f8bbd2ebe2451a408ce4b650a345f3dfbc2.png" />
+<img alt="../_images/3c1943584da246cc80911e8fd9ece258928427dd50313ff25d29f615372575ba.png" src="../_images/3c1943584da246cc80911e8fd9ece258928427dd50313ff25d29f615372575ba.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test RMSE: 16.9251
 </pre></div>
 </div>
@@ -1744,14 +1749,14 @@ predicted = 438.411438, expected = 432.000000
 <h3>Menambahkan Bulan<a class="headerlink" href="#menambahkan-bulan" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span>
 <span class="n">df</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-f574b2f5-9827-45b9-b39c-e63859844b0c" class="colab-df-container">
+  <div id="df-379967e9-bca9-4e78-8999-94e0ff79d665" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1783,27 +1788,27 @@ predicted = 438.411438, expected = 432.000000
     <tr>
       <th>1949-01-01</th>
       <td>112</td>
-      <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>1949-02-01</th>
       <td>118</td>
-      <td>1</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>1949-03-01</th>
       <td>132</td>
-      <td>2</td>
+      <td>3</td>
     </tr>
     <tr>
       <th>1949-04-01</th>
       <td>129</td>
-      <td>3</td>
+      <td>4</td>
     </tr>
     <tr>
       <th>1949-05-01</th>
       <td>121</td>
-      <td>4</td>
+      <td>5</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1813,27 +1818,27 @@ predicted = 438.411438, expected = 432.000000
     <tr>
       <th>1960-08-01</th>
       <td>606</td>
-      <td>139</td>
+      <td>140</td>
     </tr>
     <tr>
       <th>1960-09-01</th>
       <td>508</td>
-      <td>140</td>
+      <td>141</td>
     </tr>
     <tr>
       <th>1960-10-01</th>
       <td>461</td>
-      <td>141</td>
+      <td>142</td>
     </tr>
     <tr>
       <th>1960-11-01</th>
       <td>390</td>
-      <td>142</td>
+      <td>143</td>
     </tr>
     <tr>
       <th>1960-12-01</th>
       <td>432</td>
-      <td>143</td>
+      <td>144</td>
     </tr>
   </tbody>
 </table>
@@ -1842,7 +1847,7 @@ predicted = 438.411438, expected = 432.000000
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-f574b2f5-9827-45b9-b39c-e63859844b0c')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-379967e9-bca9-4e78-8999-94e0ff79d665')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -1894,12 +1899,12 @@ predicted = 438.411438, expected = 432.000000
 
     <script>
       const buttonEl =
-        document.querySelector('#df-f574b2f5-9827-45b9-b39c-e63859844b0c button.colab-df-convert');
+        document.querySelector('#df-379967e9-bca9-4e78-8999-94e0ff79d665 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-f574b2f5-9827-45b9-b39c-e63859844b0c');
+        const element = document.querySelector('#df-379967e9-bca9-4e78-8999-94e0ff79d665');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1919,8 +1924,8 @@ predicted = 438.411438, expected = 432.000000
   </div>
 
 
-<div id="df-9cd584a8-a4dd-4831-a5d0-4340dc9885f8">
-  <button class="colab-df-quickchart" onclick="quickchart('df-9cd584a8-a4dd-4831-a5d0-4340dc9885f8')"
+<div id="df-223325b7-7378-445a-a2ce-4cc7ba1ad9dc">
+  <button class="colab-df-quickchart" onclick="quickchart('df-223325b7-7378-445a-a2ce-4cc7ba1ad9dc')"
             title="Suggest charts"
             style="display:none;">
 
@@ -2039,14 +2044,14 @@ predicted = 438.411438, expected = 432.000000
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-9cd584a8-a4dd-4831-a5d0-4340dc9885f8 button');
+        document.querySelector('#df-223325b7-7378-445a-a2ce-4cc7ba1ad9dc button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
   </script>
 </div>
 
-  <div id="id_7f61347d-6cdc-4286-acdf-b0220e021196">
+  <div id="id_b753d5bd-f6bb-45b8-9bef-8ceabf3aea72">
     <style>
       .colab-df-generate {
         background-color: #E8F0FE;
@@ -2090,7 +2095,7 @@ predicted = 438.411438, expected = 432.000000
     <script>
       (() => {
       const buttonEl =
-        document.querySelector('#id_7f61347d-6cdc-4286-acdf-b0220e021196 button.colab-df-generate');
+        document.querySelector('#id_b753d5bd-f6bb-45b8-9bef-8ceabf3aea72 button.colab-df-generate');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
@@ -2110,16 +2115,19 @@ predicted = 438.411438, expected = 432.000000
 <h3>Sliding Windows<a class="headerlink" href="#sliding-windows" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_sliding_window_dataset</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">window_size</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Month&#39;</span><span class="p">]</span>
+ <span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Passengers&#39;</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">create_sliding_window_dataset</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">window_size</span><span class="p">):</span>
     <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">-</span> <span class="n">window_size</span><span class="p">):</span>
-        <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Passengers&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span> <span class="o">+</span> <span class="n">window_size</span><span class="p">])</span>
-        <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Passengers&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">window_size</span><span class="p">])</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">window_size</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)):</span>
+        <span class="n">X</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="n">window_size</span><span class="p">:</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 
 <span class="c1"># Membuat dataset sliding windows</span>
 <span class="n">window_size</span> <span class="o">=</span> <span class="mi">12</span>
-<span class="n">X_window</span><span class="p">,</span> <span class="n">y_window</span> <span class="o">=</span> <span class="n">create_sliding_window_dataset</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">window_size</span><span class="p">)</span>
+<span class="n">X_window</span><span class="p">,</span> <span class="n">y_window</span> <span class="o">=</span> <span class="n">create_sliding_window_dataset</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Passengers&#39;</span><span class="p">],</span> <span class="n">window_size</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Shape of X: </span><span class="si">{</span><span class="n">X_window</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Shape of y: </span><span class="si">{</span><span class="n">y_window</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -2127,11 +2135,11 @@ predicted = 438.411438, expected = 432.000000
 <span class="c1"># Contoh menampilkan data X dan y untuk beberapa window pertama</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Beberapa data X (sliding window):&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Window </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">X_window</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Window </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">X_window</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Beberapa data y (target):&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Target </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">y_window</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Target </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">y_window</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2139,14 +2147,57 @@ predicted = 438.411438, expected = 432.000000
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shape of X: (132, 12)
 Shape of y: (132,)
 Beberapa data X (sliding window):
-Window 1: [112 118 132 129 121 135 148 148 136 119 104 118]
-Window 2: [118 132 129 121 135 148 148 136 119 104 118 115]
-Window 3: [132 129 121 135 148 148 136 119 104 118 115 126]
+Window 1: [[112 118 132 ... 119 104 118]
+ [118 132 129 ... 104 118 115]
+ [132 129 121 ... 118 115 126]
+ ...
+ [407 362 405 ... 622 606 508]
+ [362 405 417 ... 606 508 461]
+ [405 417 391 ... 508 461 390]]
+Window 2: [[112 118 132 ... 119 104 118]
+ [118 132 129 ... 104 118 115]
+ [132 129 121 ... 118 115 126]
+ ...
+ [407 362 405 ... 622 606 508]
+ [362 405 417 ... 606 508 461]
+ [405 417 391 ... 508 461 390]]
+Window 3: [[112 118 132 ... 119 104 118]
+ [118 132 129 ... 104 118 115]
+ [132 129 121 ... 118 115 126]
+ ...
+ [407 362 405 ... 622 606 508]
+ [362 405 417 ... 606 508 461]
+ [405 417 391 ... 508 461 390]]
 
 Beberapa data y (target):
-Target 1: 115
-Target 2: 126
-Target 3: 141
+Target 1: [115 126 141 135 125 149 170 170 158 133 114 140 145 150 178 163 172 178
+ 199 199 184 162 146 166 171 180 193 181 183 218 230 242 209 191 172 194
+ 196 196 236 235 229 243 264 272 237 211 180 201 204 188 235 227 234 264
+ 302 293 259 229 203 229 242 233 267 269 270 315 364 347 312 274 237 278
+ 284 277 317 313 318 374 413 405 355 306 271 306 315 301 356 348 355 422
+ 465 467 404 347 305 336 340 318 362 348 363 435 491 505 404 359 310 337
+ 360 342 406 396 420 472 548 559 463 407 362 405 417 391 419 461 472 535
+ 622 606 508 461 390 432]
+Target 2: [115 126 141 135 125 149 170 170 158 133 114 140 145 150 178 163 172 178
+ 199 199 184 162 146 166 171 180 193 181 183 218 230 242 209 191 172 194
+ 196 196 236 235 229 243 264 272 237 211 180 201 204 188 235 227 234 264
+ 302 293 259 229 203 229 242 233 267 269 270 315 364 347 312 274 237 278
+ 284 277 317 313 318 374 413 405 355 306 271 306 315 301 356 348 355 422
+ 465 467 404 347 305 336 340 318 362 348 363 435 491 505 404 359 310 337
+ 360 342 406 396 420 472 548 559 463 407 362 405 417 391 419 461 472 535
+ 622 606 508 461 390 432]
+Target 3: [115 126 141 135 125 149 170 170 158 133 114 140 145 150 178 163 172 178
+ 199 199 184 162 146 166 171 180 193 181 183 218 230 242 209 191 172 194
+ 196 196 236 235 229 243 264 272 237 211 180 201 204 188 235 227 234 264
+ 302 293 259 229 203 229 242 233 267 269 270 315 364 347 312 274 237 278
+ 284 277 317 313 318 374 413 405 355 306 271 306 315 301 356 348 355 422
+ 465 467 404 347 305 336 340 318 362 348 363 435 491 505 404 359 310 337
+ 360 342 406 396 420 472 548 559 463 407 362 405 417 391 419 461 472 535
+ 622 606 508 461 390 432]
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;ipython-input-27-34a66ffd41ce&gt;:8: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  y.append(df[i])
 </pre></div>
 </div>
 </div>
@@ -2181,75 +2232,29 @@ Shape of y_test: (27,)
 </div>
 </div>
 </section>
-<section id="random-forest-dan-gradient-boosting">
-<h3>Random Forest dan Gradient Boosting<a class="headerlink" href="#random-forest-dan-gradient-boosting" title="Link to this heading">#</a></h3>
+<section id="base-model">
+<h3># Base Model<a class="headerlink" href="#base-model" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rf_regressor</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 <span class="n">gb_regressor</span> <span class="o">=</span> <span class="n">GradientBoostingRegressor</span><span class="p">(</span><span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">linear_model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
 
 <span class="c1"># Menggunakan VotingRegressor untuk menggabungkan prediksi</span>
-<span class="n">voting_regressor</span> <span class="o">=</span> <span class="n">VotingRegressor</span><span class="p">(</span><span class="n">estimators</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;rf&#39;</span><span class="p">,</span> <span class="n">rf_regressor</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;gb&#39;</span><span class="p">,</span> <span class="n">gb_regressor</span><span class="p">)])</span>
+<span class="n">voting_regressor</span> <span class="o">=</span> <span class="n">VotingRegressor</span><span class="p">(</span><span class="n">estimators</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;rf&#39;</span><span class="p">,</span> <span class="n">rf_regressor</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;gb&#39;</span><span class="p">,</span> <span class="n">gb_regressor</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">linear_model</span><span class="p">)])</span>
 
-<span class="c1"># Inisialisasi TimeSeriesSplit untuk cross-validation</span>
-<span class="n">tscv</span> <span class="o">=</span> <span class="n">TimeSeriesSplit</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="c1"># Build the Bagging Regressor with the VotingRegressor as the base model</span>
+<span class="n">bagging_model_voting</span> <span class="o">=</span> <span class="n">BaggingRegressor</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">voting_regressor</span><span class="p">,</span> <span class="n">n_estimators</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">bagging_model_voting</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_w_scaled</span><span class="p">,</span> <span class="n">y_train_w</span><span class="p">)</span>
 
-<span class="c1"># Menyimpan evaluasi metrik</span>
-<span class="n">rmse_scores</span><span class="p">,</span> <span class="n">mae_scores</span><span class="p">,</span> <span class="n">r2_scores</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="c1"># Predicting on the test set</span>
+<span class="n">y_pred_voting</span> <span class="o">=</span> <span class="n">bagging_model_voting</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_w_scaled</span><span class="p">)</span>
 
-<span class="c1"># Melakukan cross-validation untuk model ensemble</span>
-<span class="k">for</span> <span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="ow">in</span> <span class="n">tscv</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X_train_w_scaled</span><span class="p">):</span>
-    <span class="n">X_train_cv</span><span class="p">,</span> <span class="n">X_test_cv</span> <span class="o">=</span> <span class="n">X_train_w_scaled</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">X_train_w_scaled</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
-    <span class="n">y_train_cv</span><span class="p">,</span> <span class="n">y_test_cv</span> <span class="o">=</span> <span class="n">y_train_w</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">y_train_w</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
-
-    <span class="c1"># Melatih model ensemble</span>
-    <span class="n">voting_regressor</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_cv</span><span class="p">,</span> <span class="n">y_train_cv</span><span class="p">)</span>
-
-    <span class="c1"># Melakukan prediksi</span>
-    <span class="n">y_pred_cv</span> <span class="o">=</span> <span class="n">voting_regressor</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_cv</span><span class="p">)</span>
-
-    <span class="c1"># Mengevaluasi model</span>
-    <span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test_cv</span><span class="p">,</span> <span class="n">y_pred_cv</span><span class="p">))</span>
-    <span class="n">mae</span> <span class="o">=</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test_cv</span><span class="p">,</span> <span class="n">y_pred_cv</span><span class="p">)</span>
-    <span class="n">r2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test_cv</span><span class="p">,</span> <span class="n">y_pred_cv</span><span class="p">)</span>
-
-    <span class="c1"># Menyimpan hasil evaluasi</span>
-    <span class="n">rmse_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rmse</span><span class="p">)</span>
-    <span class="n">mae_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mae</span><span class="p">)</span>
-    <span class="n">r2_scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r2</span><span class="p">)</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fold Results - RMSE: </span><span class="si">{</span><span class="n">rmse</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, MAE: </span><span class="si">{</span><span class="n">mae</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, R-squared: </span><span class="si">{</span><span class="n">r2</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="c1"># Menghitung rata-rata hasil di seluruh fold</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Average RMSE: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">rmse_scores</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average MAE: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">mae_scores</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average R-squared: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">r2_scores</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="c1"># Melatih model dengan seluruh data training untuk prediksi akhir</span>
-<span class="n">voting_regressor</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_w_scaled</span><span class="p">,</span> <span class="n">y_train_w</span><span class="p">)</span>
-<span class="n">y_test_pred</span> <span class="o">=</span> <span class="n">voting_regressor</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_w_scaled</span><span class="p">)</span>
-
-<span class="c1"># Evaluasi akhir model pada data test</span>
-<span class="n">final_rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test_w</span><span class="p">,</span> <span class="n">y_test_pred</span><span class="p">))</span>
-<span class="n">final_mae</span> <span class="o">=</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test_w</span><span class="p">,</span> <span class="n">y_test_pred</span><span class="p">)</span>
-<span class="n">final_r2</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test_w</span><span class="p">,</span> <span class="n">y_test_pred</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Final Evaluation on Test Set - RMSE: </span><span class="si">{</span><span class="n">final_rmse</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, MAE: </span><span class="si">{</span><span class="n">final_mae</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">, R-squared: </span><span class="si">{</span><span class="n">final_r2</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fold Results - RMSE: 17.28, MAE: 12.60, R-squared: 0.48
-Fold Results - RMSE: 24.17, MAE: 20.64, R-squared: 0.14
-Fold Results - RMSE: 47.19, MAE: 36.21, R-squared: -0.21
-Fold Results - RMSE: 23.46, MAE: 16.43, R-squared: 0.68
-Fold Results - RMSE: 46.38, MAE: 36.84, R-squared: 0.41
-
-Average RMSE: 31.70
-Average MAE: 24.54
-Average R-squared: 0.30
-
-Final Evaluation on Test Set - RMSE: 51.01, MAE: 36.44, R-squared: 0.59
+<span class="c1"># Calculate performance metrics</span>
+<span class="n">rmse_voting</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test_w</span><span class="p">,</span> <span class="n">y_pred_voting</span><span class="p">))</span>
+<span class="n">mse_voting</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test_w</span><span class="p">,</span> <span class="n">y_pred_voting</span><span class="p">)</span>
+<span class="n">mae_voting</span> <span class="o">=</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test_w</span><span class="p">,</span> <span class="n">y_pred_voting</span><span class="p">)</span>
+<span class="n">r2_voting</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">y_test_w</span><span class="p">,</span> <span class="n">y_pred_voting</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2259,43 +2264,54 @@ Final Evaluation on Test Set - RMSE: 51.01, MAE: 36.44, R-squared: 0.59
 <h3>Prediksi Menggunakan Sliding Window<a class="headerlink" href="#prediksi-menggunakan-sliding-window" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">last_window</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Passengers&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="o">-</span><span class="n">window_size</span><span class="p">:]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Predicting the next 5 months using the ensemble sliding window</span>
+<span class="n">last_window</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Passengers&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="o">-</span><span class="n">window_size</span><span class="p">:]</span>
 <span class="n">predictions_voting</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">30</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
     <span class="n">last_window_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">last_window</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-    <span class="n">next_pred</span> <span class="o">=</span> <span class="n">voting_regressor</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">last_window_scaled</span><span class="p">)</span>
+    <span class="n">next_pred</span> <span class="o">=</span> <span class="n">bagging_model_voting</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">last_window_scaled</span><span class="p">)</span>
     <span class="n">predictions_voting</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">next_pred</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
     <span class="c1"># Update the window with the new prediction</span>
     <span class="n">last_window</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">last_window</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">next_pred</span><span class="p">)</span>
-
-<span class="c1"># Visualisasi prediksi</span>
-<span class="n">predictions_series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">predictions_voting</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">test</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">ncols</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Passengers&#39;</span><span class="p">],</span><span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Expected Values&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">predictions_series</span><span class="p">,</span><span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;Predicted Values&#39;</span><span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualisasi-hasil-prediksi">
+<h3>Visualisasi Hasil Prediksi<a class="headerlink" href="#visualisasi-hasil-prediksi" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plotting the actual vs predicted values with the sliding window approach (3 base models)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Passengers&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Actual Production&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">periods</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="s1">&#39;ME&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">predictions_voting</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Forecasted Production (3 base models)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Air Passengers (Next 12 Months) - Sliding Window with 3 Base Models&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Passengers&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="n">error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">test</span><span class="p">,</span><span class="n">predictions</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test RMSE: </span><span class="si">%.4f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">error</span><span class="p">)</span>
+<span class="c1"># rmse_voting, mse_voting, mae_voting, r2_voting, predictions_voting</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RMSE:&quot;</span><span class="p">,</span> <span class="n">rmse_voting</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MSE&quot;</span><span class="p">,</span> <span class="n">mse_voting</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MAE:&quot;</span><span class="p">,</span> <span class="n">mae_voting</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;R^2 Score:&quot;</span><span class="p">,</span> <span class="n">r2_voting</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e8e141754cec231488ec9aee473a3d87faee84f35ee28c8993a9b0f2b8e01d50.png" src="../_images/e8e141754cec231488ec9aee473a3d87faee84f35ee28c8993a9b0f2b8e01d50.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test RMSE: 16.9251
+<img alt="../_images/62cde174bdeaf777c2347a22f4cb35e2db35b7dac7ac0bc55af3c29e8eaab9cc.png" src="../_images/62cde174bdeaf777c2347a22f4cb35e2db35b7dac7ac0bc55af3c29e8eaab9cc.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>RMSE: 37.71304238496512
+MSE 1422.273565930176
+MAE: 27.271748002329062
+R^2 Score: 0.7760815360400909
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="conclusion">
-<h1>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h1>
-<p>Prediksi yang lebih akurat adalah hasil dari Model SARIMA dengan hasil RMSE yaitu, 16.9251 dibandingkan dengan menggunakan Ensemble Learning yaitu, Rata-rata RMSE-nya adalah 51.01</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -2353,7 +2369,7 @@ Final Evaluation on Test Set - RMSE: 51.01, MAE: 36.44, R-squared: 0.59
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Air Passenger Forecasting</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Proyek Sains Data - Air Passenger Forecasting</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tujuan">Tujuan</a></li>
 </ul>
 </li>
@@ -2391,13 +2407,13 @@ Final Evaluation on Test Set - RMSE: 51.01, MAE: 36.44, R-squared: 0.59
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menambahkan-bulan">Menambahkan Bulan</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sliding-windows">Sliding Windows</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#membagi-data">Membagi Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#random-forest-dan-gradient-boosting">Random Forest dan Gradient Boosting</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#base-model"># Base Model</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prediksi-menggunakan-sliding-window">Prediksi Menggunakan Sliding Window</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-hasil-prediksi">Visualisasi Hasil Prediksi</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
 </ul>
 
   </nav></div>
