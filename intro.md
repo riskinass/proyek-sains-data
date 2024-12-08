@@ -1,15 +1,19 @@
-# Proyek Sains Data
+# Dokumentasi Proyek Sains Data
+
+Program Studi Teknik Informatika
+[IF5D Proyek Sains Data]
 
 ---
 
-## Prediksi Harga Saham PT Telkom Indonesia Tbk
+Selamat datang di laman dokumentasi tugas mata kuliah Proyek Sains Data.
+Website ini berisi penjelasan lengkap mengenai tugas-tugas yang telah saya kerjakan:
 
-Nama : Riskina Salsabilla Bayzura
+- Bisnis Understanding
+- Data Understanding
+- Forecasting
 
-NIM  : 220411100015
-
-Kelas : IF5D
-
+Dibuat oleh: [Riskina Salsabilla Bayzura - 220411100015]
+Dosen Pengampu: [Mula'ab, S.Si., M.Kom.]
 
 ```{tableofcontents}
 ```

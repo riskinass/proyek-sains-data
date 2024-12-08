@@ -8,10 +8,18 @@ parts:
     chapters:
     - file: tugas1/main
 
-  - caption: Data Understanding
+  - caption: Tugas 1 - Multivariate Single-Step Forecasting
     chapters:
     - file: tugas2/main
   
-  - caption: Tugas UTS
+  - caption: Tugas 2 - Univariate Single-Step Forecasting
     chapters:
     - file: tugas3/main
+
+  - caption: Tugas 3 - Multivariate Multi-Step Forecasting
+    chapters:
+    - file: tugas4/main
+
+  - caption: Deployment Pada Hugging face
+    chapters:
+    - file: tugas5/main
