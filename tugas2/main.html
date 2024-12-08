@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>DATA UNDERSTANDING &#8212; My sample book</title>
+    <title>Proyek Sains Data - Multivariate Single-Step &#8212; My sample book</title>
   
   
   
@@ -57,10 +57,12 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'tugas2/main';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Proyek Sains Data - Air Passenger Forecasting" href="../tugas3/main.html" />
+    <link rel="next" title="Proyek Sains Data - Univariate Single-Step" href="../tugas3/main.html" />
     <link rel="prev" title="PENDAHULUAN" href="../tugas1/main.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -175,7 +177,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Proyek Sains Data
+                    Dokumentasi Proyek Sains Data
                 </a>
             </li>
         </ul>
@@ -183,13 +185,24 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../tugas1/main.html">PENDAHULUAN</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Data Understanding</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tugas 1 - Multivariate Single-Step Forecasting</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">DATA UNDERSTANDING</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Proyek Sains Data - Multivariate Single-Step</a></li>
+
+
+
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tugas UTS</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tugas 2 - Univariate Single-Step Forecasting</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../tugas3/main.html">Proyek Sains Data - Air Passenger Forecasting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tugas3/main.html">Proyek Sains Data - Univariate Single-Step</a></li>
+
+
+
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tugas 3 - Multivariate Multi-Step Forecasting</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tugas4/main.html">Proyek Sains Data - Multivariate Multistep</a></li>
+
 
 
 
@@ -378,7 +391,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>DATA UNDERSTANDING</h1>
+    <h1>Proyek Sains Data - Multivariate Single-Step</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -388,11 +401,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requirment">Requirment</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Proyek Sains Data - Multivariate Single-Step</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prediksi-harga-saham">Prediksi Harga Saham</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-understanding">DATA UNDERSTANDING</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requirement">Requirement</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data">Load Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-data">Deskripsi Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-fitur">Penjelasan Fitur</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eda">EDA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-data-analysis-eda-secara-cepat-menggunakan-perpustakaan-pandas-profiling">Exploratory Data Analysis (EDA) secara cepat menggunakan perpustakaan Pandas Profiling</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mengecek-beberapa-baris-pertama-dataset">Mengecek Beberapa Baris Pertama Dataset</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mengecek-format-kolom">Mengecek Format Kolom</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mengganti-nama-kolom">Mengganti Nama Kolom</a></li>
@@ -408,6 +427,28 @@ document.write(`
 </ul>
 </li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preprocessing">Data Preprocessing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imputasi-missing-value">Imputasi Missing Value</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menampilkan-baris-data-yang-memiliki-missing-value">Menampilkan baris data yang memiliki missing value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menampilkan-kolom-yang-memiliki-missing-value">Menampilkan kolom yang memiliki missing value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menampilkan-total-missing-value-per-kolom">Menampilkan total missing value per kolom</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menampilkan-persentase-missing-value-per-kolom">Menampilkan persentase missing value per kolom</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghapus-baris-yang-memiliki-missing-value">Menghapus baris yang memiliki missing value</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-data-yang-ganda">Cek Data yang ganda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi-kolom">Definisi Kolom</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#splitting-dataset">Splitting Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scale-fitur-data">Scale Fitur Data</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling">Modeling</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menggunakan-regresi-linear">Menggunakan Regresi Linear</a></li>
+</ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -418,14 +459,32 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="data-understanding">
+  <section class="tex2jax_ignore mathjax_ignore" id="proyek-sains-data-multivariate-single-step">
+<h1>Proyek Sains Data - Multivariate Single-Step<a class="headerlink" href="#proyek-sains-data-multivariate-single-step" title="Link to this heading">#</a></h1>
+<hr>
+<section id="prediksi-harga-saham">
+<h2>Prediksi Harga Saham<a class="headerlink" href="#prediksi-harga-saham" title="Link to this heading">#</a></h2>
+<p>Nama : Riskina Salsabilla Bayzura</p>
+<p>NIM  : 220411100015</p>
+<p>Kelas : IF5D</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="data-understanding">
 <h1>DATA UNDERSTANDING<a class="headerlink" href="#data-understanding" title="Link to this heading">#</a></h1>
 <p>Saham adalah surat yang menjadi bukti kepemilikan sebagian modal suatu perusahaan. Saham merupakan salah satu instrumen investasi yang populer dan menjanjikan keuntungan.</p>
 <p>Investasi saham adalah kegiatan menanamkan modal pada perusahaan dengan membeli saham. Investor saham bisa mendapatkan keuntungan dari kenaikan harga saham (capital gain) dan dividen yang dibagikan perusahaan. Namun masih banyak investor yang ragu dengan resiko berinvestasi, khawatir yang diinvestasikan tidak sesuai dengan harapan dikarenakan fluktuasi indeks harga saham dalam waktu yang singkat.</p>
 <p>Untuk itu agar investor tidak mengalami kerugian saat membeli saham, maka diperlukan analisis terhadap saham yang ingin dibeli. Seperti dengan melakukan analisis pada saham PT Telkom Indonesia (TLKM) dan melakukan prediksi pada hari berikutnya dengan analisis teknikal.</p>
 <p>Pada studi kasusu kali ini saya akan menggunakan 2 (dua) metode Machine Learing untuk melakukan prediksi, yaitu Regresi Linear dan salah satu jenis Neural Network, yakni Long Short Term Memory (LSTM).</p>
-<section id="requirment">
-<h2>Requirment<a class="headerlink" href="#requirment" title="Link to this heading">#</a></h2>
+<section id="requirement">
+<h2>Requirement<a class="headerlink" href="#requirement" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install ydata-profiling</span>
+<span class="c1"># from ydata_profiling import ProfileReport</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -433,16 +492,24 @@ document.write(`
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_absolute_error</span><span class="p">,</span> <span class="n">mean_squared_error</span><span class="p">,</span> <span class="n">r2_score</span>
+
+<span class="kn">import</span> <span class="nn">joblib</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
 
 <span class="ne">ModuleNotFoundError</span>: No module named &#39;plotly&#39;
 </pre></div>
@@ -517,6 +584,17 @@ columns: Index([&#39;Tanggal&#39;, &#39;Terakhir&#39;, &#39;Pembukaan&#39;, &#39
 <li><p>Terdapat missing values sebanyak <strong>5</strong></p></li>
 <li><p>Isi kolomnya antara lain =&gt; Tanggal, Terakhir, Pembukaan, Tertinggi, Terendah, Vol., Perubahan%</p></li>
 </ol>
+<section id="exploratory-data-analysis-eda-secara-cepat-menggunakan-perpustakaan-pandas-profiling">
+<h3>Exploratory Data Analysis (EDA) secara cepat menggunakan perpustakaan Pandas Profiling<a class="headerlink" href="#exploratory-data-analysis-eda-secara-cepat-menggunakan-perpustakaan-pandas-profiling" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># profile = ProfileReport(df, title=f&quot;Train dataset&quot;)</span>
+<span class="c1"># profile.to_notebook_iframe()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 <section id="mengecek-beberapa-baris-pertama-dataset">
 <h3>Mengecek Beberapa Baris Pertama Dataset<a class="headerlink" href="#mengecek-beberapa-baris-pertama-dataset" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
@@ -527,7 +605,7 @@ columns: Index([&#39;Tanggal&#39;, &#39;Terakhir&#39;, &#39;Pembukaan&#39;, &#39
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-f1aee309-9f25-47a7-a054-2a915c9eb062" class="colab-df-container">
+  <div id="df-8b2880ed-522f-4559-b982-9b2fbbddc687" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -612,7 +690,7 @@ columns: Index([&#39;Tanggal&#39;, &#39;Terakhir&#39;, &#39;Pembukaan&#39;, &#39
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-f1aee309-9f25-47a7-a054-2a915c9eb062')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-8b2880ed-522f-4559-b982-9b2fbbddc687')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -664,12 +742,12 @@ columns: Index([&#39;Tanggal&#39;, &#39;Terakhir&#39;, &#39;Pembukaan&#39;, &#39
 
     <script>
       const buttonEl =
-        document.querySelector('#df-f1aee309-9f25-47a7-a054-2a915c9eb062 button.colab-df-convert');
+        document.querySelector('#df-8b2880ed-522f-4559-b982-9b2fbbddc687 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-f1aee309-9f25-47a7-a054-2a915c9eb062');
+        const element = document.querySelector('#df-8b2880ed-522f-4559-b982-9b2fbbddc687');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -689,8 +767,8 @@ columns: Index([&#39;Tanggal&#39;, &#39;Terakhir&#39;, &#39;Pembukaan&#39;, &#39
   </div>
 
 
-<div id="df-ff4944b8-4fd1-4e93-b518-29cf89c8f372">
-  <button class="colab-df-quickchart" onclick="quickchart('df-ff4944b8-4fd1-4e93-b518-29cf89c8f372')"
+<div id="df-22976f5b-91cf-49de-bf5c-710443e65ea0">
+  <button class="colab-df-quickchart" onclick="quickchart('df-22976f5b-91cf-49de-bf5c-710443e65ea0')"
             title="Suggest charts"
             style="display:none;">
 
@@ -809,7 +887,7 @@ columns: Index([&#39;Tanggal&#39;, &#39;Terakhir&#39;, &#39;Pembukaan&#39;, &#39
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-ff4944b8-4fd1-4e93-b518-29cf89c8f372 button');
+        document.querySelector('#df-22976f5b-91cf-49de-bf5c-710443e65ea0 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -875,6 +953,16 @@ memory usage: 76.1+ KB
 </section>
 <section id="menghitung-jumlah-data-yang-hilang-missing-value">
 <h3>Menghitung Jumlah Data yang Hilang (Missing Value)<a class="headerlink" href="#menghitung-jumlah-data-yang-hilang-missing-value" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">(),</span><span class="n">cmap</span> <span class="o">=</span> <span class="s1">&#39;Reds&#39;</span><span class="p">,</span><span class="n">cbar</span> <span class="o">=</span> <span class="kc">False</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/e938b90dc99c1f1b11b63de5532387dc95bd0a4f257bd1a4c5db42d557129db7.png" src="../_images/e938b90dc99c1f1b11b63de5532387dc95bd0a4f257bd1a4c5db42d557129db7.png" />
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -948,7 +1036,7 @@ memory usage: 76.1+ KB
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-ffba6bcd-8d02-451f-af7d-08883334363e" class="colab-df-container">
+  <div id="df-5efa7818-17d0-4b5e-97ba-af3051bff36b" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1036,7 +1124,7 @@ memory usage: 76.1+ KB
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-ffba6bcd-8d02-451f-af7d-08883334363e')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-5efa7818-17d0-4b5e-97ba-af3051bff36b')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -1088,12 +1176,12 @@ memory usage: 76.1+ KB
 
     <script>
       const buttonEl =
-        document.querySelector('#df-ffba6bcd-8d02-451f-af7d-08883334363e button.colab-df-convert');
+        document.querySelector('#df-5efa7818-17d0-4b5e-97ba-af3051bff36b button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-ffba6bcd-8d02-451f-af7d-08883334363e');
+        const element = document.querySelector('#df-5efa7818-17d0-4b5e-97ba-af3051bff36b');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1113,8 +1201,8 @@ memory usage: 76.1+ KB
   </div>
 
 
-<div id="df-e96cbbe5-0671-472f-9c5b-99c72a2221e8">
-  <button class="colab-df-quickchart" onclick="quickchart('df-e96cbbe5-0671-472f-9c5b-99c72a2221e8')"
+<div id="df-16a8b818-02dc-4976-b874-97d53b1ffb63">
+  <button class="colab-df-quickchart" onclick="quickchart('df-16a8b818-02dc-4976-b874-97d53b1ffb63')"
             title="Suggest charts"
             style="display:none;">
 
@@ -1233,7 +1321,7 @@ memory usage: 76.1+ KB
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-e96cbbe5-0671-472f-9c5b-99c72a2221e8 button');
+        document.querySelector('#df-16a8b818-02dc-4976-b874-97d53b1ffb63 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -1251,9 +1339,82 @@ memory usage: 76.1+ KB
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Tanggal&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Tanggal&#39;</span><span class="p">],</span> <span class="n">dayfirst</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Tanggal&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Tanggal</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2019-01-02</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2019-01-03</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2019-01-04</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2019-01-07</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2019-01-08</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1385</th>
+      <td>2024-09-18</td>
+    </tr>
+    <tr>
+      <th>1386</th>
+      <td>2024-09-19</td>
+    </tr>
+    <tr>
+      <th>1387</th>
+      <td>2024-09-20</td>
+    </tr>
+    <tr>
+      <th>1388</th>
+      <td>2024-09-23</td>
+    </tr>
+    <tr>
+      <th>1389</th>
+      <td>2024-09-24</td>
+    </tr>
+  </tbody>
+</table>
+<p>1390 rows × 1 columns</p>
+</div><br><label><b>dtype:</b> datetime64[ns]</label></div></div>
 </div>
 <p>Dilakukan konversi tanggal untuk mengubah formatnya menjadi ‘dd-mm-yyyy’ agar memudahkan kita untuk mengambil informasinya.</p>
 </section>
@@ -1354,7 +1515,7 @@ memory usage: 76.1+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/516ab4ccb121e7b19a972893092efc2058662375c626116b21a27ff217f491ac.png" src="../_images/516ab4ccb121e7b19a972893092efc2058662375c626116b21a27ff217f491ac.png" />
+<img alt="../_images/975c24b355cfb8371af48b8811a0962655a2f0dac5780d4f3441583185bf108a.png" src="../_images/975c24b355cfb8371af48b8811a0962655a2f0dac5780d4f3441583185bf108a.png" />
 </div>
 </div>
 <p>Diagram di atas merupakan visualisasi dari banyaknya data berdasarkan tahun yang tersedia, dapat dilihat bahwa jumlah data tiap fiturnya pada awal tahun 2019 menuju tahun 2020 mengalami penurunan yang signifikan, kemudian pada awal tahun 2020 hingga tahun 2022 mengalami kenaikan yang cukup stabil, dan berlanjut pada awal tahun 2023 mengalami penurunan yang cukup drastis.</p>
@@ -1372,7 +1533,7 @@ memory usage: 76.1+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/08d81ae379119930de24fe388570f2061a31b47e5a3d9d7426cb4496a4f05d78.png" src="../_images/08d81ae379119930de24fe388570f2061a31b47e5a3d9d7426cb4496a4f05d78.png" />
+<img alt="../_images/1952514cbea89c3d0c26f824d72fca35e45a92a196003be5296e63c5313cd33e.png" src="../_images/1952514cbea89c3d0c26f824d72fca35e45a92a196003be5296e63c5313cd33e.png" />
 </div>
 </div>
 <p>Diagram tersebut memvisualisasikan rata-rata nilai dari fitur-fitur numerik (Penutupan, Pembukaan, Tertinggi, Terendah) pada dataset harga saham PT Telkom Indonesia Tbk (TLKM) untuk setiap tahunnya.</p>
@@ -1423,7 +1584,7 @@ memory usage: 76.1+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1305c3d84a07a446c7b9f6abaf267d617959a785bda67f14952f28a900530f08.png" src="../_images/1305c3d84a07a446c7b9f6abaf267d617959a785bda67f14952f28a900530f08.png" />
+<img alt="../_images/9a6b06e5a14a94921166a0aaa8a8087d2a116980338fc14f6f9e1c2421f05da4.png" src="../_images/9a6b06e5a14a94921166a0aaa8a8087d2a116980338fc14f6f9e1c2421f05da4.png" />
 </div>
 </div>
 <p>Visualisasi jumlah volume untuk tiap tahunnya, kolom volumen ini saya bedakan dikarenakan untuk memastikan bahwa setiap kolom diproses dengan benar sesuai dengan tipe data dan karakteristiknya, sehingga perhitungan dapat dilakukan dengan akurat dan menghindari error.</p>
@@ -1526,7 +1687,7 @@ memory usage: 76.1+ KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1d3ebbb8d0348b03b18036652800307c22c230e05aa1158172f0d13b2d7b9969.png" src="../_images/1d3ebbb8d0348b03b18036652800307c22c230e05aa1158172f0d13b2d7b9969.png" />
+<img alt="../_images/532bd466b4b1f8acc3dff38ace00f85fcb0d068d1217b10ecdb7b2b15dac49d8.png" src="../_images/532bd466b4b1f8acc3dff38ace00f85fcb0d068d1217b10ecdb7b2b15dac49d8.png" />
 </div>
 </div>
 <p>Dari hasil visualisasi korelasi fitur-fitur di atas, saya mendapatkan kesimpulan antara lain:</p>
@@ -1536,8 +1697,1747 @@ memory usage: 76.1+ KB
 <li><p>Korelasi Negatif: ‘Tahun’ menunjukkan korelasi negatif yang lemah dengan beberapa fitur. Ini bisa menunjukkan adanya tren penurunan harga saham dalam rentang waktu yang diwakili oleh data (2019-2024), meskipun korelasinya tidak terlalu kuat.</p></li>
 </ol>
 <p>Secara umum, visualisasi korelasi menunjukkan bahwa fitur-fitur (Penutupan, Pembukaan, Tertinggi, Terendah) memiliki hubungan yang erat, sedangkan Volume dan Perubahan memiliki hubungan yang lebih independen dengan fitur-fitur lainnya. Oleh karena itu, pada proses selanjutnya akan dilakukan penghapusan Kolom Perubahan dan Kolom Volume karena tidak akan terlalu berguna.</p>
-<p>Coming Soon</p>
+<p>Pearson correlation is a statistical measure used to determine the strength and direction of a linear relationship between two continuous variables. The value of the Pearson correlation coefficient (denoted as <strong>r</strong>) ranges from -1 to 1:</p>
+<ul class="simple">
+<li><p><strong>r = 1</strong>: Perfect positive linear relationship. As one variable increases, the other increases proportionally.</p></li>
+<li><p><strong>r = -1</strong>: Perfect negative linear relationship. As one variable increases, the other decreases proportionally.</p></li>
+<li><p><strong>r = 0</strong>: No linear relationship between the two variables.</p></li>
+</ul>
+<p>The formula for Pearson correlation is:</p>
+<p><span class="math notranslate nohighlight">\(
+r = \frac{\sum (X_i - \bar{X})(Y_i - \bar{Y})}{\sqrt{\sum (X_i - \bar{X})^2 \sum (Y_i - \bar{Y})^2}}
+\)</span></p>
+<p>Where:</p>
+<ul class="simple">
+<li><p>(X_i) and (Y_i) are individual data points from the two variables.</p></li>
+<li><p>(\bar{X}) and (\bar{Y}) are the means of the variables (X) and (Y), respectively.</p></li>
+</ul>
+<p>Would you like to calculate the Pearson correlation for a specific dataset, or do you need further explanation on its interpretation?</p>
 </section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="data-preprocessing">
+<h1>Data Preprocessing<a class="headerlink" href="#data-preprocessing" title="Link to this heading">#</a></h1>
+<section id="imputasi-missing-value">
+<h2>Imputasi Missing Value<a class="headerlink" href="#imputasi-missing-value" title="Link to this heading">#</a></h2>
+<section id="menampilkan-baris-data-yang-memiliki-missing-value">
+<h3>Menampilkan baris data yang memiliki missing value<a class="headerlink" href="#menampilkan-baris-data-yang-memiliki-missing-value" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">missing_data</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+
+<span class="n">missing_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-ad090835-877d-4b01-a535-5d220caf220a" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Tanggal</th>
+      <th>Penutupan</th>
+      <th>Pembukaan</th>
+      <th>Tertinggi</th>
+      <th>Terendah</th>
+      <th>Volume</th>
+      <th>Perubahan</th>
+      <th>Tahun</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1384</th>
+      <td>2024-09-17</td>
+      <td>3.09</td>
+      <td>3.12</td>
+      <td>3.13</td>
+      <td>3.08</td>
+      <td>NaN</td>
+      <td>-0.0064</td>
+      <td>2024</td>
+    </tr>
+    <tr>
+      <th>1385</th>
+      <td>2024-09-18</td>
+      <td>3.12</td>
+      <td>3.12</td>
+      <td>3.13</td>
+      <td>3.10</td>
+      <td>NaN</td>
+      <td>0.0097</td>
+      <td>2024</td>
+    </tr>
+    <tr>
+      <th>1386</th>
+      <td>2024-09-19</td>
+      <td>3.14</td>
+      <td>3.14</td>
+      <td>3.15</td>
+      <td>3.12</td>
+      <td>NaN</td>
+      <td>0.0064</td>
+      <td>2024</td>
+    </tr>
+    <tr>
+      <th>1387</th>
+      <td>2024-09-20</td>
+      <td>3.15</td>
+      <td>3.15</td>
+      <td>3.17</td>
+      <td>3.12</td>
+      <td>NaN</td>
+      <td>0.0032</td>
+      <td>2024</td>
+    </tr>
+    <tr>
+      <th>1388</th>
+      <td>2024-09-23</td>
+      <td>3.17</td>
+      <td>3.15</td>
+      <td>3.18</td>
+      <td>3.13</td>
+      <td>NaN</td>
+      <td>0.0063</td>
+      <td>2024</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-ad090835-877d-4b01-a535-5d220caf220a')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-ad090835-877d-4b01-a535-5d220caf220a button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-ad090835-877d-4b01-a535-5d220caf220a');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-008798e3-bf71-4a72-8b8b-f7e34f73c236">
+  <button class="colab-df-quickchart" onclick="quickchart('df-008798e3-bf71-4a72-8b8b-f7e34f73c236')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-008798e3-bf71-4a72-8b8b-f7e34f73c236 button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+
+  <div id="id_cd2e190c-09ee-46aa-8a50-4cd8511124c5">
+    <style>
+      .colab-df-generate {
+        background-color: #E8F0FE;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        fill: #1967D2;
+        height: 32px;
+        padding: 0 0 0 0;
+        width: 32px;
+      }
+
+      .colab-df-generate:hover {
+        background-color: #E2EBFA;
+        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+        fill: #174EA6;
+      }
+
+      [theme=dark] .colab-df-generate {
+        background-color: #3B4455;
+        fill: #D2E3FC;
+      }
+
+      [theme=dark] .colab-df-generate:hover {
+        background-color: #434B5C;
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+        fill: #FFFFFF;
+      }
+    </style>
+    <button class="colab-df-generate" onclick="generateWithVariable('missing_data')"
+            title="Generate code using this dataframe."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"/>
+  </svg>
+    </button>
+    <script>
+      (() => {
+      const buttonEl =
+        document.querySelector('#id_cd2e190c-09ee-46aa-8a50-4cd8511124c5 button.colab-df-generate');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      buttonEl.onclick = () => {
+        google.colab.notebook.generateWithVariable('missing_data');
+      }
+      })();
+    </script>
+  </div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+<p>Dapat dilihat bahwa pada index 1384-1388 pada kolom Vol. terdapat 5 data yang berstatus ‘NaN’.</p>
+</section>
+<section id="menampilkan-kolom-yang-memiliki-missing-value">
+<h3>Menampilkan kolom yang memiliki missing value<a class="headerlink" href="#menampilkan-kolom-yang-memiliki-missing-value" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">missing_columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+<span class="n">missing_columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Volume&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Kita pastikan kolom mana yang memeiliki missing values, dan hasilnya adalah Kolom Vol. saja yang terdapat missing value.</p>
+</section>
+<section id="menampilkan-total-missing-value-per-kolom">
+<h3>Menampilkan total missing value per kolom<a class="headerlink" href="#menampilkan-total-missing-value-per-kolom" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">missing_count</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="n">missing_count</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Tanggal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Penutupan</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Pembukaan</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tertinggi</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Terendah</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Volume</th>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>Perubahan</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tahun</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div><br><label><b>dtype:</b> int64</label></div></div>
+</div>
+<p>Total missing values pada Kolom Vol. berjumlah 5 data.</p>
+</section>
+<section id="menampilkan-persentase-missing-value-per-kolom">
+<h3>Menampilkan persentase missing value per kolom<a class="headerlink" href="#menampilkan-persentase-missing-value-per-kolom" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">missing_percentage</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="n">missing_percentage</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Tanggal</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>Penutupan</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>Pembukaan</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>Tertinggi</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>Terendah</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>Volume</th>
+      <td>0.359712</td>
+    </tr>
+    <tr>
+      <th>Perubahan</th>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>Tahun</th>
+      <td>0.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div><br><label><b>dtype:</b> float64</label></div></div>
+</div>
+<p>Presentasi missing values pada Kolom Vol. hanya sebesar <strong>0.359712</strong>, sehingga saya memutuskan untuk menangani missing values dengan menggunakan <em>Litwise Deletion</em> yaitu metode dalam statistik untuk menangani data yang hilang dengan cara menghapus seluruh catatan yang mengandung nilai yang hilang. Sehingga saya akan <strong>menghapus data pada index 1384-1388</strong>.</p>
+</section>
+<section id="menghapus-baris-yang-memiliki-missing-value">
+<h3>Menghapus baris yang memiliki missing value<a class="headerlink" href="#menghapus-baris-yang-memiliki-missing-value" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Volume&#39;</span><span class="p">],</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;any&#39;</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Volume&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Volume&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Volume</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>31360000.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>83840000.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>73940000.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>83680000.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>67960000.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1380</th>
+      <td>46440000.0</td>
+    </tr>
+    <tr>
+      <th>1381</th>
+      <td>62900000.0</td>
+    </tr>
+    <tr>
+      <th>1382</th>
+      <td>85790000.0</td>
+    </tr>
+    <tr>
+      <th>1383</th>
+      <td>125030000.0</td>
+    </tr>
+    <tr>
+      <th>1389</th>
+      <td>92260000.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>1385 rows × 1 columns</p>
+</div><br><label><b>dtype:</b> float64</label></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">missing_count</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="n">missing_count</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Tanggal</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Penutupan</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Pembukaan</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tertinggi</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Terendah</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Volume</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Perubahan</th>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Tahun</th>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div><br><label><b>dtype:</b> int64</label></div></div>
+</div>
+</section>
+</section>
+<section id="cek-data-yang-ganda">
+<h2>Cek Data yang ganda<a class="headerlink" href="#cek-data-yang-ganda" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">duplicated_count</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+<span class="n">duplicated_count</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="definisi-kolom">
+<h2>Definisi Kolom<a class="headerlink" href="#definisi-kolom" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#X sebagai features, i.e. data selain tanggal dan harga penutupan saham...</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Tanggal&#39;</span><span class="p">,</span><span class="s1">&#39;Penutupan&#39;</span><span class="p">,</span><span class="s1">&#39;Tahun&#39;</span><span class="p">])</span>
+<span class="c1">#...dan Y sebagai target, i.e. harga penutupan saham</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Penutupan&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-af9fd9de-c88c-4283-a9e0-bbe8e0ace0ed" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Pembukaan</th>
+      <th>Tertinggi</th>
+      <th>Terendah</th>
+      <th>Volume</th>
+      <th>Perubahan</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3.75</td>
+      <td>3.76</td>
+      <td>3.70</td>
+      <td>31360000.0</td>
+      <td>-0.0053</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3.71</td>
+      <td>3.77</td>
+      <td>3.69</td>
+      <td>83840000.0</td>
+      <td>0.0027</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3.69</td>
+      <td>3.74</td>
+      <td>3.69</td>
+      <td>73940000.0</td>
+      <td>-0.0080</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3.76</td>
+      <td>3.79</td>
+      <td>3.75</td>
+      <td>83680000.0</td>
+      <td>0.0162</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3.77</td>
+      <td>3.80</td>
+      <td>3.75</td>
+      <td>67960000.0</td>
+      <td>0.0080</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1380</th>
+      <td>3.06</td>
+      <td>3.06</td>
+      <td>3.02</td>
+      <td>46440000.0</td>
+      <td>0.0000</td>
+    </tr>
+    <tr>
+      <th>1381</th>
+      <td>3.03</td>
+      <td>3.05</td>
+      <td>3.02</td>
+      <td>62900000.0</td>
+      <td>0.0033</td>
+    </tr>
+    <tr>
+      <th>1382</th>
+      <td>3.06</td>
+      <td>3.07</td>
+      <td>3.05</td>
+      <td>85790000.0</td>
+      <td>0.0033</td>
+    </tr>
+    <tr>
+      <th>1383</th>
+      <td>3.08</td>
+      <td>3.12</td>
+      <td>3.07</td>
+      <td>125030000.0</td>
+      <td>0.0197</td>
+    </tr>
+    <tr>
+      <th>1389</th>
+      <td>3.18</td>
+      <td>3.18</td>
+      <td>3.15</td>
+      <td>92260000.0</td>
+      <td>-0.0032</td>
+    </tr>
+  </tbody>
+</table>
+<p>1385 rows × 5 columns</p>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-af9fd9de-c88c-4283-a9e0-bbe8e0ace0ed')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-af9fd9de-c88c-4283-a9e0-bbe8e0ace0ed button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-af9fd9de-c88c-4283-a9e0-bbe8e0ace0ed');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-304feb25-4640-473b-b38a-5e357c3df8c2">
+  <button class="colab-df-quickchart" onclick="quickchart('df-304feb25-4640-473b-b38a-5e357c3df8c2')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-304feb25-4640-473b-b38a-5e357c3df8c2 button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+
+  <div id="id_6189e868-4ee8-4c89-bb28-42ab271b5151">
+    <style>
+      .colab-df-generate {
+        background-color: #E8F0FE;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: none;
+        fill: #1967D2;
+        height: 32px;
+        padding: 0 0 0 0;
+        width: 32px;
+      }
+
+      .colab-df-generate:hover {
+        background-color: #E2EBFA;
+        box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+        fill: #174EA6;
+      }
+
+      [theme=dark] .colab-df-generate {
+        background-color: #3B4455;
+        fill: #D2E3FC;
+      }
+
+      [theme=dark] .colab-df-generate:hover {
+        background-color: #434B5C;
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+        filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+        fill: #FFFFFF;
+      }
+    </style>
+    <button class="colab-df-generate" onclick="generateWithVariable('X')"
+            title="Generate code using this dataframe."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M7,19H8.4L18.45,9,17,7.55,7,17.6ZM5,21V16.75L18.45,3.32a2,2,0,0,1,2.83,0l1.4,1.43a1.91,1.91,0,0,1,.58,1.4,1.91,1.91,0,0,1-.58,1.4L9.25,21ZM18.45,9,17,7.55Zm-12,3A5.31,5.31,0,0,0,4.9,8.1,5.31,5.31,0,0,0,1,6.5,5.31,5.31,0,0,0,4.9,4.9,5.31,5.31,0,0,0,6.5,1,5.31,5.31,0,0,0,8.1,4.9,5.31,5.31,0,0,0,12,6.5,5.46,5.46,0,0,0,6.5,12Z"/>
+  </svg>
+    </button>
+    <script>
+      (() => {
+      const buttonEl =
+        document.querySelector('#id_6189e868-4ee8-4c89-bb28-42ab271b5151 button.colab-df-generate');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      buttonEl.onclick = () => {
+        google.colab.notebook.generateWithVariable('X');
+      }
+      })();
+    </script>
+  </div>
+
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Y</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Penutupan</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>3.73</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3.74</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3.71</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3.77</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>3.80</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1380</th>
+      <td>3.03</td>
+    </tr>
+    <tr>
+      <th>1381</th>
+      <td>3.04</td>
+    </tr>
+    <tr>
+      <th>1382</th>
+      <td>3.05</td>
+    </tr>
+    <tr>
+      <th>1383</th>
+      <td>3.11</td>
+    </tr>
+    <tr>
+      <th>1389</th>
+      <td>3.16</td>
+    </tr>
+  </tbody>
+</table>
+<p>1385 rows × 1 columns</p>
+</div><br><label><b>dtype:</b> float64</label></div></div>
+</div>
+</section>
+<section id="splitting-dataset">
+<h2>Splitting Dataset<a class="headerlink" href="#splitting-dataset" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##membagi data untuk training dan testing, proporsi data testing = 0.2*total data, data tidak dikocok</span>
+<span class="n">X_train</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">Y_train</span><span class="p">,</span><span class="n">Y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Train:&#39;</span><span class="p">,</span> <span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">Y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test:&#39;</span><span class="p">,</span> <span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">Y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Train: (1108, 5) (1108,)
+Test: (277, 5) (277,)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="scale-fitur-data">
+<h2>Scale Fitur Data<a class="headerlink" href="#scale-fitur-data" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scaler</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">(</span><span class="n">feature_range</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">X_train_scale</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X_train</span><span class="p">)</span>
+<span class="n">X_test_scale</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Data Before</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">Pembukaan</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[3.75, 3.71, 3.69, 3.76, 3.77]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Data After</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">X_train_scale</span><span class="p">[:</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.5217391304347827, 0.5043478260869567, 0.4956521739130435, 0.5260869565217392, 0.5304347826086957]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="modeling">
+<h1>Modeling<a class="headerlink" href="#modeling" title="Link to this heading">#</a></h1>
+<section id="menggunakan-regresi-linear">
+<h2>Menggunakan Regresi Linear<a class="headerlink" href="#menggunakan-regresi-linear" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#define sklearn.linear_model.LinearRegression sebagai Lr</span>
+<span class="n">Lr</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="c1">#training model</span>
+<span class="n">Lr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_scale</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style>#sk-container-id-1 {
+  /* Definition of color scheme common for light and dark mode */
+  --sklearn-color-text: black;
+  --sklearn-color-line: gray;
+  /* Definition of color scheme for unfitted estimators */
+  --sklearn-color-unfitted-level-0: #fff5e6;
+  --sklearn-color-unfitted-level-1: #f6e4d2;
+  --sklearn-color-unfitted-level-2: #ffe0b3;
+  --sklearn-color-unfitted-level-3: chocolate;
+  /* Definition of color scheme for fitted estimators */
+  --sklearn-color-fitted-level-0: #f0f8ff;
+  --sklearn-color-fitted-level-1: #d4ebff;
+  --sklearn-color-fitted-level-2: #b3dbfd;
+  --sklearn-color-fitted-level-3: cornflowerblue;
+
+  /* Specific color for light theme */
+  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));
+  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-icon: #696969;
+
+  @media (prefers-color-scheme: dark) {
+    /* Redefinition of color scheme for dark theme */
+    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));
+    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-icon: #878787;
+  }
+}
+
+#sk-container-id-1 {
+  color: var(--sklearn-color-text);
+}
+
+#sk-container-id-1 pre {
+  padding: 0;
+}
+
+#sk-container-id-1 input.sk-hidden--visually {
+  border: 0;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+#sk-container-id-1 div.sk-dashed-wrapped {
+  border: 1px dashed var(--sklearn-color-line);
+  margin: 0 0.4em 0.5em 0.4em;
+  box-sizing: border-box;
+  padding-bottom: 0.4em;
+  background-color: var(--sklearn-color-background);
+}
+
+#sk-container-id-1 div.sk-container {
+  /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
+     but bootstrap.min.css set `[hidden] { display: none !important; }`
+     so we also need the `!important` here to be able to override the
+     default hidden behavior on the sphinx rendered scikit-learn.org.
+     See: https://github.com/scikit-learn/scikit-learn/issues/21755 */
+  display: inline-block !important;
+  position: relative;
+}
+
+#sk-container-id-1 div.sk-text-repr-fallback {
+  display: none;
+}
+
+div.sk-parallel-item,
+div.sk-serial,
+div.sk-item {
+  /* draw centered vertical line to link estimators */
+  background-image: linear-gradient(var(--sklearn-color-text-on-default-background), var(--sklearn-color-text-on-default-background));
+  background-size: 2px 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* Parallel-specific style estimator block */
+
+#sk-container-id-1 div.sk-parallel-item::after {
+  content: "";
+  width: 100%;
+  border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
+  flex-grow: 1;
+}
+
+#sk-container-id-1 div.sk-parallel {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background-color: var(--sklearn-color-background);
+  position: relative;
+}
+
+#sk-container-id-1 div.sk-parallel-item {
+  display: flex;
+  flex-direction: column;
+}
+
+#sk-container-id-1 div.sk-parallel-item:first-child::after {
+  align-self: flex-end;
+  width: 50%;
+}
+
+#sk-container-id-1 div.sk-parallel-item:last-child::after {
+  align-self: flex-start;
+  width: 50%;
+}
+
+#sk-container-id-1 div.sk-parallel-item:only-child::after {
+  width: 0;
+}
+
+/* Serial-specific style estimator block */
+
+#sk-container-id-1 div.sk-serial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--sklearn-color-background);
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+
+/* Toggleable style: style used for estimator/Pipeline/ColumnTransformer box that is
+clickable and can be expanded/collapsed.
+- Pipeline and ColumnTransformer use this feature and define the default style
+- Estimators will overwrite some part of the style using the `sk-estimator` class
+*/
+
+/* Pipeline and ColumnTransformer style (default) */
+
+#sk-container-id-1 div.sk-toggleable {
+  /* Default theme specific background. It is overwritten whether we have a
+  specific estimator or a Pipeline/ColumnTransformer */
+  background-color: var(--sklearn-color-background);
+}
+
+/* Toggleable label */
+#sk-container-id-1 label.sk-toggleable__label {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
+  padding: 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+#sk-container-id-1 label.sk-toggleable__label-arrow:before {
+  /* Arrow on the left of the label */
+  content: "▸";
+  float: left;
+  margin-right: 0.25em;
+  color: var(--sklearn-color-icon);
+}
+
+#sk-container-id-1 label.sk-toggleable__label-arrow:hover:before {
+  color: var(--sklearn-color-text);
+}
+
+/* Toggleable content - dropdown */
+
+#sk-container-id-1 div.sk-toggleable__content {
+  max-height: 0;
+  max-width: 0;
+  overflow: hidden;
+  text-align: left;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content pre {
+  margin: 0.2em;
+  border-radius: 0.25em;
+  color: var(--sklearn-color-text);
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-toggleable__content.fitted pre {
+  /* unfitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-1 input.sk-toggleable__control:checked~div.sk-toggleable__content {
+  /* Expand drop-down */
+  max-height: 200px;
+  max-width: 100%;
+  overflow: auto;
+}
+
+#sk-container-id-1 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
+  content: "▾";
+}
+
+/* Pipeline/ColumnTransformer-specific style */
+
+#sk-container-id-1 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator-specific style */
+
+/* Colorize estimator box */
+#sk-container-id-1 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+#sk-container-id-1 div.sk-label label.sk-toggleable__label,
+#sk-container-id-1 div.sk-label label {
+  /* The background is the default theme color */
+  color: var(--sklearn-color-text-on-default-background);
+}
+
+/* On hover, darken the color of the background */
+#sk-container-id-1 div.sk-label:hover label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+/* Label box, darken color on hover, fitted */
+#sk-container-id-1 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator label */
+
+#sk-container-id-1 div.sk-label label {
+  font-family: monospace;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 1.2em;
+}
+
+#sk-container-id-1 div.sk-label-container {
+  text-align: center;
+}
+
+/* Estimator-specific */
+#sk-container-id-1 div.sk-estimator {
+  font-family: monospace;
+  border: 1px dotted var(--sklearn-color-border-box);
+  border-radius: 0.25em;
+  box-sizing: border-box;
+  margin-bottom: 0.5em;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+/* on hover */
+#sk-container-id-1 div.sk-estimator:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-1 div.sk-estimator.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Specification for estimator info (e.g. "i" and "?") */
+
+/* Common style for "i" and "?" */
+
+.sk-estimator-doc-link,
+a:link.sk-estimator-doc-link,
+a:visited.sk-estimator-doc-link {
+  float: right;
+  font-size: smaller;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1em;
+  height: 1em;
+  width: 1em;
+  text-decoration: none !important;
+  margin-left: 1ex;
+  /* unfitted */
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+  color: var(--sklearn-color-unfitted-level-1);
+}
+
+.sk-estimator-doc-link.fitted,
+a:link.sk-estimator-doc-link.fitted,
+a:visited.sk-estimator-doc-link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+div.sk-estimator:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover,
+div.sk-label-container:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover,
+div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+/* Span, style for the box shown on hovering the info icon */
+.sk-estimator-doc-link span {
+  display: none;
+  z-index: 9999;
+  position: relative;
+  font-weight: normal;
+  right: .2ex;
+  padding: .5ex;
+  margin: .5ex;
+  width: min-content;
+  min-width: 20ex;
+  max-width: 50ex;
+  color: var(--sklearn-color-text);
+  box-shadow: 2pt 2pt 4pt #999;
+  /* unfitted */
+  background: var(--sklearn-color-unfitted-level-0);
+  border: .5pt solid var(--sklearn-color-unfitted-level-3);
+}
+
+.sk-estimator-doc-link.fitted span {
+  /* fitted */
+  background: var(--sklearn-color-fitted-level-0);
+  border: var(--sklearn-color-fitted-level-3);
+}
+
+.sk-estimator-doc-link:hover span {
+  display: block;
+}
+
+/* "?"-specific style due to the `<a>` HTML tag */
+
+#sk-container-id-1 a.estimator_doc_link {
+  float: right;
+  font-size: 1rem;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1rem;
+  height: 1rem;
+  width: 1rem;
+  text-decoration: none;
+  /* unfitted */
+  color: var(--sklearn-color-unfitted-level-1);
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+}
+
+#sk-container-id-1 a.estimator_doc_link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+#sk-container-id-1 a.estimator_doc_link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+#sk-container-id-1 a.estimator_doc_link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+}
+</style><div id="sk-container-id-1" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>LinearRegression()</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-1" type="checkbox" checked><label for="sk-estimator-id-1" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;LinearRegression<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.linear_model.LinearRegression.html">?<span>Documentation for LinearRegression</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>LinearRegression()</pre></div> </div></div></div></div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pred</span> <span class="o">=</span> <span class="n">Lr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_scale</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hasil Akurasi Pelatihan Dengan Linear Regression Terhadap Test Data&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Nilai MSE : </span><span class="si">{</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span><span class="n">Y_test</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Nilai MAE : </span><span class="si">{</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span><span class="n">Y_test</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Nilai R2  : </span><span class="si">{</span><span class="n">r2_score</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span><span class="n">Y_test</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hasil Akurasi Pelatihan Dengan Linear Regression Terhadap Test Data
+Nilai MSE : 0.00030681876069581183
+Nilai MAE : 0.012942068974154442
+Nilai R2  : 0.9982077284703859
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#plotting</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">15</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Y_train</span><span class="p">),</span><span class="nb">len</span><span class="p">(</span><span class="n">Y</span><span class="p">)),</span><span class="n">pred</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Real Data&#39;</span><span class="p">,</span><span class="s1">&#39;Predicted Data&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/b6455dfc1d999bda6a9aac8625d3682f3e02cf7a58325e4308849596411be53a.png" src="../_images/b6455dfc1d999bda6a9aac8625d3682f3e02cf7a58325e4308849596411be53a.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_url</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/MyDrive/PSD/model/lr-single-multivariate.joblib&#39;</span>
+<span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">Lr</span><span class="p">,</span> <span class="n">model_url</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;/content/drive/MyDrive/PSD/model/lr-single-multivariate.joblib&#39;]
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -1585,7 +3485,7 @@ memory usage: 76.1+ KB
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Proyek Sains Data - Air Passenger Forecasting</p>
+        <p class="prev-next-title">Proyek Sains Data - Univariate Single-Step</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1605,11 +3505,17 @@ memory usage: 76.1+ KB
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requirment">Requirment</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Proyek Sains Data - Multivariate Single-Step</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prediksi-harga-saham">Prediksi Harga Saham</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-understanding">DATA UNDERSTANDING</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requirement">Requirement</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data">Load Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-data">Deskripsi Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#penjelasan-fitur">Penjelasan Fitur</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#eda">EDA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exploratory-data-analysis-eda-secara-cepat-menggunakan-perpustakaan-pandas-profiling">Exploratory Data Analysis (EDA) secara cepat menggunakan perpustakaan Pandas Profiling</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mengecek-beberapa-baris-pertama-dataset">Mengecek Beberapa Baris Pertama Dataset</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mengecek-format-kolom">Mengecek Format Kolom</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mengganti-nama-kolom">Mengganti Nama Kolom</a></li>
@@ -1625,6 +3531,28 @@ memory usage: 76.1+ KB
 </ul>
 </li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#data-preprocessing">Data Preprocessing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imputasi-missing-value">Imputasi Missing Value</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menampilkan-baris-data-yang-memiliki-missing-value">Menampilkan baris data yang memiliki missing value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menampilkan-kolom-yang-memiliki-missing-value">Menampilkan kolom yang memiliki missing value</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menampilkan-total-missing-value-per-kolom">Menampilkan total missing value per kolom</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menampilkan-persentase-missing-value-per-kolom">Menampilkan persentase missing value per kolom</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menghapus-baris-yang-memiliki-missing-value">Menghapus baris yang memiliki missing value</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-data-yang-ganda">Cek Data yang ganda</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definisi-kolom">Definisi Kolom</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#splitting-dataset">Splitting Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scale-fitur-data">Scale Fitur Data</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling">Modeling</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menggunakan-regresi-linear">Menggunakan Regresi Linear</a></li>
+</ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>
