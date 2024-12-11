@@ -19,7 +19,3 @@ parts:
   - caption: Tugas 3 - Multivariate Multi-Step Forecasting
     chapters:
     - file: tugas4/main
-
-  - caption: Deployment Pada Hugging face
-    chapters:
-    - file: tugas5/main
