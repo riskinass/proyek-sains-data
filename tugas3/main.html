@@ -805,6 +805,11 @@ document.write(`
 </section>
 <section id="penjelasan-fitur">
 <h2>Penjelasan Fitur<a class="headerlink" href="#penjelasan-fitur" title="Link to this heading">#</a></h2>
+<p>Dataset ini memiliki dua kolom utama:</p>
+<ul class="simple">
+<li><p>Month: Berisi informasi bulan dan tahun (misalnya “1949-01”, “1949-02”, dst.)</p></li>
+<li><p>Passengers: Jumlah penumpang pesawat dalam ribuan.</p></li>
+</ul>
 </section>
 <section id="eda-exploratory-data-analisys">
 <h2>EDA (Exploratory Data Analisys)<a class="headerlink" href="#eda-exploratory-data-analisys" title="Link to this heading">#</a></h2>
@@ -1442,6 +1447,7 @@ informations: &lt;bound method DataFrame.info of        Month  #Passengers
   </div>
 </div></div>
 </div>
+<p>Tahap ini kita memberikan format untuk Date yaitu dd-mm-yyyy, untuk memudahkan proses nantinya. Tanggal didapat dari tanggal pertama setiap bulan. Perlu ditekankan bahwa untuk analisis tetap dilakukan secara bulanan bukan harian.</p>
 </section>
 <section id="distribusi-data">
 <h3>Distribusi Data<a class="headerlink" href="#distribusi-data" title="Link to this heading">#</a></h3>
